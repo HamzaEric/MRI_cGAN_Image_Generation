@@ -82,7 +82,7 @@ def torch_images(num_images, model_id):
     generators = Generators()
     dataloader = generators.get_as_torch_dataloader(
         model_id=model_id,
-        install_dependencies=True,
+        install_dependencies=False,
         num_samples=num_images,
         prefetch_factor=None,
     )
