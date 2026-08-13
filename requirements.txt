@@ -3,5 +3,7 @@ torch==2.1.1
 torchvision==0.16.1
 medigan
 opencv-python-headless
+opencv-contrib-python-headless
+albumentations
 setuptools<70.0.0
 numpy<2.0.0
