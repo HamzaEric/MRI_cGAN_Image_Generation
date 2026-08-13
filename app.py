@@ -5,6 +5,25 @@ import torch.nn as nn
 import torchvision
 from torchvision.transforms.functional import to_pil_image
 from torchvision.utils import make_grid
+
+# ==========================================
+# HOTFIX: Bypass Medigan's strict package check
+# ==========================================
+import pkg_resources
+original_require = pkg_resources.require
+
+def patched_require(*args, **kwargs):
+    try:
+        return original_require(*args, **kwargs)
+    except pkg_resources.DistributionNotFound as e:
+        if 'opencv-contrib-python' in str(e):
+            pass  # We have the headless version installed, so ignore this error
+        else:
+            raise e
+
+pkg_resources.require = patched_require
+# ==========================================
+
 from medigan import Generators
 
 # ==========================================
