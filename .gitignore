@@ -1,5 +1,4 @@
 # Ignore dynamic external model downloads
-models/
 output/
 
 # Ignore virtual environment (if not already added)
